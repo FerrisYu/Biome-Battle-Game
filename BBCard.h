@@ -40,7 +40,7 @@
 
 
 -(UIImage *)getImgViaUrl:(NSString *) strUrl;
-
+-(NSString *)getContent:(NSString *) htmlStr;
 
 
 
