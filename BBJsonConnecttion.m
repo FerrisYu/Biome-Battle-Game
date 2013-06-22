@@ -19,7 +19,8 @@
     NSURL *jsonUrl = [NSURL URLWithString:url];
     NSError *error = nil;
     NSData *jsonData = [NSData dataWithContentsOfURL:jsonUrl options:0 error:&error];
-    NSArray *ConvertedObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];    
+    NSArray *ConvertedObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
+    return ConvertedObject;
 }
 
 

@@ -7,6 +7,10 @@
 //
 
 #import "BBAppDelegate.h"
+#import "Card.h"
+#import "CardImg.h"
+#import "CardsNum.h"
+#import "BBJsonConnecttion.h"
 
 @implementation BBAppDelegate
 
@@ -15,11 +19,12 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{  
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [self create];
     return YES;
 }
 
@@ -137,6 +142,85 @@
     
     return _persistentStoreCoordinator;
 }
+
+- (void) create {
+    
+    int count = 0;
+    // Grab the context
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+
+    
+    BBJsonConnecttion *jsonConnect = [[BBJsonConnecttion alloc]init];
+    
+    //Get the array containing JSON object
+    NSArray *cards =[jsonConnect JSonconnect:@"http://phylogame.org/?api=json&num=2" ];
+    //CardsNum *cardsNum = [NSEntityDescription insertNewObjectForEntityForName:@"cardsNum" inManagedObjectContext:context];
+    NSLog(@"Get from json %@", cards);
+    //cardsNum.num = 0;
+    NSInteger usedId=0;
+    NSLog(@"Get from json %i", [cards count]);
+    for(count=0; count<[cards count]; count++)
+    {
+        NSLog(@"Go into the loop");
+        NSDictionary *simgleCard = cards[count];
+        CardImg *cardImg = [NSEntityDescription insertNewObjectForEntityForName:@"CardImg" inManagedObjectContext:context];
+        Card *card = [NSEntityDescription insertNewObjectForEntityForName:@"Card" inManagedObjectContext:context];
+        usedId++;
+        cardImg.cardId =[NSNumber numberWithInt:usedId];
+        
+        //get the Img for CardImg.img
+        NSString *strUrl = [simgleCard valueForKey:@"graphic"];
+        NSLog(@"rpint strUrl: %@", strUrl);
+//        NSURL *imageURL = [NSURL URLWithString:strUrl];
+//        NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+//        UIImage * image = [UIImage imageWithData:imageData];
+
+//        NSData *savedImageData = UIImageJPEGRepresentation(image,1);
+//        cardImg.img = savedImageData;
+        
+        card.name = [simgleCard valueForKey:@"name"];
+        NSLog(@"card name%@", card.name);
+        card.latin_name = [simgleCard valueForKey:@"latin_name"];
+        card.card_color = [simgleCard valueForKey:@"card_color"];
+        card.graphic_artist = [simgleCard valueForKey:@"graphic_artist"];
+        card.habitat1 = [simgleCard valueForKey:@"habitat1"];
+        card.habitat3 = [simgleCard valueForKey:@"habitat3"];
+        card.habitat2 = [simgleCard valueForKey:@"habitat2"];
+        card.hierarchy = [NSNumber numberWithInt:[[simgleCard valueForKey:@"hierarchy"] intValue]];
+        card.size = [NSNumber numberWithInt:[[simgleCard valueForKey:@"hierarchy"] intValue]];
+        card.graphicUrl = [simgleCard valueForKey:@"graphicUrl"];
+        card.size_image_url = [simgleCard valueForKey:@"size_image_url"];
+        card.backgroundGraphicUrl = [simgleCard valueForKey:@"background_image_url"];
+        card.food_hierachy_img_url = [simgleCard valueForKey:@"graphic"];
+//        card.graphicImg =[simgleCard valueForKey:@"graphic"];
+//        card.foodHieraachyImg = [simgleCard valueForKey:@"graphic"];
+//        card.sizeGraphicImg =[simgleCard valueForKey:@"graphic"];
+//        card.backgroundGraphicImg = [simgleCard valueForKey:@"graphic"];
+        card.cardId =cardImg.cardId;
+        
+        //connecting together
+        cardImg.card = card;
+        card.cardImg = cardImg;
+        NSLog(@"end of the loop");
+        
+        NSError *error = nil;
+        if ([context save:&error]) {
+            NSLog(@"The save was successful!");
+        } else {
+            NSLog(@"The save wasn't successful: %@", [error userInfo]);
+        }
+        NSLog(@"end of the function");
+
+        
+    }
+    //cardsNum.num = [NSNumber numberWithInt:usedId];
+        NSLog(@"out of  the loop");
+
+    // Save everything
+    
+   }
+
 
 #pragma mark - Application's Documents directory
 

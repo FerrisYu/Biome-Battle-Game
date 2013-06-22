@@ -13,10 +13,10 @@
 {
 }
 
-@property NSString *strUrl;
-@property NSArray *cards;
-@property NSDictionary *singleCard;
-
+//@property NSString *strUrl;
+//@property NSArray *cards;
+//@property NSDictionary *singleCard;
+//
 
 
 
