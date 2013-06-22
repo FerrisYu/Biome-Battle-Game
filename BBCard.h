@@ -39,8 +39,8 @@
 @property NSString *card_content;
 
 
--(UIImage *)getImgViaUrl:(NSString *) strUrl;
--(NSString *)getContent:(NSString *) htmlStr;
++(UIImage *)getNSDataFormatImgWithUrl:(NSString *) strUrl;
++(NSString *)getContent:(NSString *) htmlStr;
 
 
 

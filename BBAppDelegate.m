@@ -10,6 +10,7 @@
 #import "Card.h"
 #import "CardImg.h"
 #import "CardsNum.h"
+#import "BBCard.h"
 #import "BBJsonConnecttion.h"
 
 @implementation BBAppDelegate
@@ -144,7 +145,7 @@
 }
 
 - (void) create {
-    
+    NSInteger usedId=0;
     int count = 0;
     // Grab the context
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -154,11 +155,11 @@
     BBJsonConnecttion *jsonConnect = [[BBJsonConnecttion alloc]init];
     
     //Get the array containing JSON object
-    NSArray *cards =[jsonConnect JSonconnect:@"http://phylogame.org/?api=json&num=2" ];
+    NSArray *cards =[jsonConnect JSonconnect:@"http://phylogame.org/?api=json&num=1" ];
     //CardsNum *cardsNum = [NSEntityDescription insertNewObjectForEntityForName:@"cardsNum" inManagedObjectContext:context];
     NSLog(@"Get from json %@", cards);
     //cardsNum.num = 0;
-    NSInteger usedId=0;
+  
     NSLog(@"Get from json %i", [cards count]);
     for(count=0; count<[cards count]; count++)
     {
@@ -172,12 +173,9 @@
         //get the Img for CardImg.img
         NSString *strUrl = [simgleCard valueForKey:@"graphic"];
         NSLog(@"rpint strUrl: %@", strUrl);
-//        NSURL *imageURL = [NSURL URLWithString:strUrl];
-//        NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-//        UIImage * image = [UIImage imageWithData:imageData];
 
-//        NSData *savedImageData = UIImageJPEGRepresentation(image,1);
-//        cardImg.img = savedImageData;
+        NSData *savedImageData = [BBCard getNSDataFormatImgWithUrl:strUrl];
+        cardImg.img = savedImageData;
         
         card.name = [simgleCard valueForKey:@"name"];
         NSLog(@"card name%@", card.name);
@@ -189,14 +187,12 @@
         card.habitat2 = [simgleCard valueForKey:@"habitat2"];
         card.hierarchy = [NSNumber numberWithInt:[[simgleCard valueForKey:@"hierarchy"] intValue]];
         card.size = [NSNumber numberWithInt:[[simgleCard valueForKey:@"hierarchy"] intValue]];
-        card.graphicUrl = [simgleCard valueForKey:@"graphicUrl"];
         card.size_image_url = [simgleCard valueForKey:@"size_image_url"];
         card.backgroundGraphicUrl = [simgleCard valueForKey:@"background_image_url"];
-        card.food_hierachy_img_url = [simgleCard valueForKey:@"graphic"];
-//        card.graphicImg =[simgleCard valueForKey:@"graphic"];
+//        card.food_hierachy_img_url = [simgleCard valueForKey:@"graphic"];
 //        card.foodHieraachyImg = [simgleCard valueForKey:@"graphic"];
 //        card.sizeGraphicImg =[simgleCard valueForKey:@"graphic"];
-//        card.backgroundGraphicImg = [simgleCard valueForKey:@"graphic"];
+        card.backgroundGraphicImg = [simgleCard valueForKey:@"graphic"];
         card.cardId =cardImg.cardId;
         
         //connecting together

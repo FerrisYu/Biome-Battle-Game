@@ -15,16 +15,17 @@
 //Get image from URL
 //This method is obtain from stackoverflow
 //http://stackoverflow.com/questions/15314907/save-image-to-core-data
-+(UIImage *)getImgViaUrl:(NSString *) strUrl
++(NSData *)getNSDataFormatImgWithUrl:(NSString *) strUrl
 {
 	NSURL * imageURL = [NSURL URLWithString:strUrl];
     NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
     UIImage * image = [UIImage imageWithData:imageData];
-    return image;
-    
+    NSData *savedImageData = UIImageJPEGRepresentation(image,1);
+    return savedImageData;
 }
 
--(NSString *) getContent:(NSString *) htmlStr {
++(
++(NSString *) getContent:(NSString *) htmlStr {
     NSRange r;
     NSString *s = [self copy];
     while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
