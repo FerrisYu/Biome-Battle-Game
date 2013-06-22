@@ -24,7 +24,7 @@
     return savedImageData;
 }
 
-+(
+
 +(NSString *) getContent:(NSString *) htmlStr {
     NSRange r;
     NSString *s = [self copy];

@@ -10,8 +10,9 @@
 #import "Card.h"
 #import "CardImg.h"
 #import "CardsNum.h"
-#import "BBCard.h"
 #import "BBJsonConnecttion.h"
+#import "BBCard.h"
+
 
 @implementation BBAppDelegate
 
@@ -155,15 +156,14 @@
     BBJsonConnecttion *jsonConnect = [[BBJsonConnecttion alloc]init];
     
     //Get the array containing JSON object
-    NSArray *cards =[jsonConnect JSonconnect:@"http://phylogame.org/?api=json&num=1" ];
+    NSArray *cards =[jsonConnect JSonconnect:@"http://phylogame.org/?api=json&num=450" ];
     //CardsNum *cardsNum = [NSEntityDescription insertNewObjectForEntityForName:@"cardsNum" inManagedObjectContext:context];
-    NSLog(@"Get from json %@", cards);
+
     //cardsNum.num = 0;
   
     NSLog(@"Get from json %i", [cards count]);
     for(count=0; count<[cards count]; count++)
     {
-        NSLog(@"Go into the loop");
         NSDictionary *simgleCard = cards[count];
         CardImg *cardImg = [NSEntityDescription insertNewObjectForEntityForName:@"CardImg" inManagedObjectContext:context];
         Card *card = [NSEntityDescription insertNewObjectForEntityForName:@"Card" inManagedObjectContext:context];
@@ -172,10 +172,8 @@
         
         //get the Img for CardImg.img
         NSString *strUrl = [simgleCard valueForKey:@"graphic"];
-        NSLog(@"rpint strUrl: %@", strUrl);
-
-        NSData *savedImageData = [BBCard getNSDataFormatImgWithUrl:strUrl];
-        cardImg.img = savedImageData;
+        cardImg.img = [BBCard getNSDataFormatImgWithUrl:(strUrl)];
+        
         
         card.name = [simgleCard valueForKey:@"name"];
         NSLog(@"card name%@", card.name);
@@ -192,7 +190,7 @@
 //        card.food_hierachy_img_url = [simgleCard valueForKey:@"graphic"];
 //        card.foodHieraachyImg = [simgleCard valueForKey:@"graphic"];
 //        card.sizeGraphicImg =[simgleCard valueForKey:@"graphic"];
-        card.backgroundGraphicImg = [simgleCard valueForKey:@"graphic"];
+//        card.backgroundGraphicImg =[BBCard getNSDataFormatImgWithUrl:[simgleCard valueForKey:@"graphic"]];
         card.cardId =cardImg.cardId;
         
         //connecting together
@@ -200,6 +198,8 @@
         card.cardImg = cardImg;
         NSLog(@"end of the loop");
         
+        
+        // Save everything
         NSError *error = nil;
         if ([context save:&error]) {
             NSLog(@"The save was successful!");
@@ -211,9 +211,8 @@
         
     }
     //cardsNum.num = [NSNumber numberWithInt:usedId];
-        NSLog(@"out of  the loop");
 
-    // Save everything
+ 
     
    }
 
