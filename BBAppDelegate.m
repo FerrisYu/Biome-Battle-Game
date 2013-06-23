@@ -11,7 +11,7 @@
 #import "CardImg.h"
 #import "BBDBManager.h"
 #import "BBJsonConnecttion.h"
-#import "BBCard.h"
+
 
 
 
@@ -27,8 +27,9 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    [self create];
-
+    if(![BBDBManager coreDataHasEntriesForEntityName:@"CardImg"]){
+            [self create];
+    }
     return YES;
 }
 
@@ -55,7 +56,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
-{
+{   
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }
@@ -148,7 +149,8 @@
 }
 
 - (void) create
-{
+{   //check if a database is setup already or not
+    
     NSInteger usedId=0;
     int count = 0;
     // Grab the context
@@ -175,13 +177,13 @@
         
         //get the Img for CardImg.img
         NSString *strUrl = [simgleCard valueForKey:@"graphic"];
-        cardImg.img = [BBCard getNSDataFormatImgWithUrl:(strUrl)];
+        cardImg.img = [Card getNSDataFormatImgWithUrl:(strUrl)];
         
         
         card.name = [simgleCard valueForKey:@"name"];
         NSLog(@"card name%@", card.name);
         card.latin_name = [simgleCard valueForKey:@"latin_name"];
-        card.content = [BBCard getContent:[simgleCard valueForKey:@"card_content"]];
+        card.content = [Card getContent:[simgleCard valueForKey:@"card_content"]];
         card.card_color = [simgleCard valueForKey:@"card_color"];
         card.graphic_artist = [simgleCard valueForKey:@"graphic_artist"];
         card.habitat1 = [simgleCard valueForKey:@"habitat1"];

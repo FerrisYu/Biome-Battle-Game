@@ -34,4 +34,7 @@
 @property (nonatomic, retain) NSNumber * cardId;
 @property (nonatomic, retain) CardImg *cardImg;
 
++(NSString *) getContent:(NSString *) html;
++(NSData *)getNSDataFormatImgWithUrl:(NSString *) strUrl;
+
 @end

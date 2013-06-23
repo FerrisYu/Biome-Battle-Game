@@ -21,7 +21,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 +(CardImg *)GetRecordById:(int) idNum ;
-
++ (BOOL)coreDataHasEntriesForEntityName:(NSString *)entityName;
 
 
 
