@@ -166,7 +166,7 @@
 
     //cardsNum.num = 0;
   
-    NSLog(@"Get from json %i", [cards count]);
+    //NSLog(@"Get from json %i", [cards count]);
     for(count=0; count<[cards count]; count++)
     {
         NSDictionary *simgleCard = cards[count];
@@ -181,7 +181,7 @@
         
         
         card.name = [simgleCard valueForKey:@"name"];
-        NSLog(@"card name%@", card.name);
+        //NSLog(@"card name%@", card.name);
         card.latin_name = [simgleCard valueForKey:@"latin_name"];
         card.content = [Card getContent:[simgleCard valueForKey:@"card_content"]];
         card.card_color = [simgleCard valueForKey:@"card_color"];
@@ -207,7 +207,7 @@
         //connecting together
         cardImg.card = card;
         card.cardImg = cardImg;
-        NSLog(@"end of the loop");
+         // NSLog(@"end of the loop");
         
         
         // Save everything
