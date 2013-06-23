@@ -14,7 +14,7 @@
 
 //Get image from URL
 //This method is obtain from stackoverflow
-//http://stackoverflow.com/questions/15314907/save-image-to-core-data
+
 +(NSData *)getNSDataFormatImgWithUrl:(NSString *) strUrl
 {
 	NSURL * imageURL = [NSURL URLWithString:strUrl];
@@ -25,13 +25,32 @@
 }
 
 
-+(NSString *) getContent:(NSString *) htmlStr {
-    NSRange r;
-    NSString *s = [self copy];
-    while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
-        s = [s stringByReplacingCharactersInRange:r withString:@""];
-    return s;
++(NSString *) getContent:(NSString *) html {
+        
+        NSScanner *theScanner;
+        NSString *text = nil;
+        
+        theScanner = [NSScanner scannerWithString:html];
+        
+        while ([theScanner isAtEnd] == NO)
+        {
+            
+            // find start of tag
+            [theScanner scanUpToString:@"<" intoString:NULL] ;
+            // find end of tag
+            [theScanner scanUpToString:@">" intoString:&text] ;
+            
+            // replace the found tag with a space
+            //(you can filter multi-spaces out later if you wish)
+            html = [html stringByReplacingOccurrencesOfString:
+                    [ NSString stringWithFormat:@"%@>", text]
+                                                   withString:@" "];
+            
+        } // while //
+    return html;
+
 }
+
 
 
 @end

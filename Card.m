@@ -14,6 +14,7 @@
 
 @dynamic name;
 @dynamic latin_name;
+@dynamic content;
 @dynamic card_color;
 @dynamic graphic_artist;
 @dynamic habitat1;

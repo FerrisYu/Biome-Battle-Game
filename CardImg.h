@@ -16,4 +16,5 @@
 @property (nonatomic, retain) NSNumber * cardId;
 @property (nonatomic, retain) NSManagedObject *card;
 
+-(UIImage*)getImg;
 @end

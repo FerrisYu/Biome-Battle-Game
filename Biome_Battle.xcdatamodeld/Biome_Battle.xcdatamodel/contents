@@ -5,6 +5,7 @@
         <attribute name="backgroundGraphicUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="card_color" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cardId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="food_hierachy_img_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="foodHieraachyImg" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="graphic_artist" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,12 +27,8 @@
         <attribute name="img" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="card" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Card" inverseName="cardImg" inverseEntity="Card" syncable="YES"/>
     </entity>
-    <entity name="CardsNum" representedClassName="CardsNum" syncable="YES">
-        <attribute name="num" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-    </entity>
     <elements>
+        <element name="Card" positionX="342" positionY="153" width="128" height="343"/>
         <element name="CardImg" positionX="45" positionY="156" width="128" height="88"/>
-        <element name="Card" positionX="342" positionY="153" width="128" height="328"/>
-        <element name="CardsNum" positionX="54" positionY="54" width="128" height="58"/>
     </elements>
 </model>

@@ -9,9 +9,10 @@
 #import "BBAppDelegate.h"
 #import "Card.h"
 #import "CardImg.h"
-#import "CardsNum.h"
+#import "BBDBManager.h"
 #import "BBJsonConnecttion.h"
 #import "BBCard.h"
+
 
 
 @implementation BBAppDelegate
@@ -27,6 +28,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     [self create];
+
     return YES;
 }
 
@@ -145,7 +147,8 @@
     return _persistentStoreCoordinator;
 }
 
-- (void) create {
+- (void) create
+{
     NSInteger usedId=0;
     int count = 0;
     // Grab the context
@@ -156,7 +159,7 @@
     BBJsonConnecttion *jsonConnect = [[BBJsonConnecttion alloc]init];
     
     //Get the array containing JSON object
-    NSArray *cards =[jsonConnect JSonconnect:@"http://phylogame.org/?api=json&num=450" ];
+    NSArray *cards =[jsonConnect JSonconnect:@"http://phylogame.org/?api=json&num=10" ];
     //CardsNum *cardsNum = [NSEntityDescription insertNewObjectForEntityForName:@"cardsNum" inManagedObjectContext:context];
 
     //cardsNum.num = 0;
@@ -178,6 +181,7 @@
         card.name = [simgleCard valueForKey:@"name"];
         NSLog(@"card name%@", card.name);
         card.latin_name = [simgleCard valueForKey:@"latin_name"];
+        card.content = [BBCard getContent:[simgleCard valueForKey:@"card_content"]];
         card.card_color = [simgleCard valueForKey:@"card_color"];
         card.graphic_artist = [simgleCard valueForKey:@"graphic_artist"];
         card.habitat1 = [simgleCard valueForKey:@"habitat1"];
@@ -207,14 +211,20 @@
             NSLog(@"The save wasn't successful: %@", [error userInfo]);
         }
         NSLog(@"end of the function");
-
-        
     }
+
+    
+}
     //cardsNum.num = [NSNumber numberWithInt:usedId];
 
- 
-    
-   }
+//-(void)read{
+//    CardImg* tmp = [BBDBManager GetRecordById:2];
+//    UIImageView *bgImage = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,480,300)];
+//    bgImage.image = [tmp getImg];
+//    [self.window addSubview:bgImage];
+//    //NSLog(@"this is from database. card id %@",tmp.cardId);
+//}
+
 
 
 #pragma mark - Application's Documents directory
@@ -226,3 +236,4 @@
 }
 
 @end
+

@@ -15,4 +15,10 @@
 @dynamic cardId;
 @dynamic card;
 
+//retunr UIImage
+-(UIImage*)getImg
+{
+    return [UIImage imageWithData:self.img];
+}
+
 @end

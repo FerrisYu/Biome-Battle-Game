@@ -1,47 +1,46 @@
-////
-////  BBDBManager.m
-////  Biome Battle
-////
-////  Created by Hai fu Yu on 13-6-21.
-////  Copyright (c) 2013年 Hai fu Yu. All rights reserved.
-////
 //
-//#import "BBDBManager.h"
+//  BBDBManager.m
+//  Biome Battle
 //
-//@implementation BBDBManager
+//  Created by Hai fu Yu on 13-6-21.
+//  Copyright (c) 2013年 Hai fu Yu. All rights reserved.
 //
-////creat a json connection and receive the json object in the cards variable.
-//
-//-(void)getJsonObjectWithStringUrl:(NSString *) strUrl
-//{
-//
-//    JSONController = [[BBJsonConnecttion alloc] init];
-//    self.cards = [JSONController JSonconnect:strUrl];
-//}
-//
-//-(void)createCardRecord:(NSDictionary *)card
-//{
-//    // Grab the context
-//    NSManagedObjectContext *context = [self managedObjectContext];
-//    
-//    // Grab the Label entity
-//    Label *label = [NSEntityDescription insertNewObjectForEntityForName:@"CardImg" inManagedObjectContext:context];
-//}
-//
-//-(Card *)GetRecordById:(NSInteger *) idnum
-//{
-//    
-//}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//@end
+
+#import "BBDBManager.h"
+@implementation BBDBManager
+
+
+//get a cardImg Record using its cardId attribute
+
++(CardImg *)GetRecordById:(int) idNum
+{
+    NSInteger tmp = idNum;
+    BBAppDelegate *appDelegate = (BBAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    // Construct a fetch request
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CardImg"
+                                              inManagedObjectContext:context];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(cardId == %d)", tmp];
+    [fetchRequest setPredicate:predicate];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    return fetchedObjects[0];
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@end

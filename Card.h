@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * latin_name;
+@property (nonatomic, retain) NSString * content;
 @property (nonatomic, retain) NSString * card_color;
 @property (nonatomic, retain) NSString * graphic_artist;
 @property (nonatomic, retain) NSString * habitat1;
