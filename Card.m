@@ -69,6 +69,12 @@
     
 }
 
+-(UIImage*)getImgWittNSSdata:(NSData*)data
+{
+    return [UIImage imageWithData:data];
+}
+
+
 
 
 

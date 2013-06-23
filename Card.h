@@ -36,5 +36,6 @@
 
 +(NSString *) getContent:(NSString *) html;
 +(NSData *)getNSDataFormatImgWithUrl:(NSString *) strUrl;
+-(UIImage*)getImgWittNSSdata:(NSData*)data;
 
 @end

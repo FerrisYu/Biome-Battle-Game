@@ -191,12 +191,17 @@
         card.habitat2 = [simgleCard valueForKey:@"habitat2"];
         card.hierarchy = [NSNumber numberWithInt:[[simgleCard valueForKey:@"hierarchy"] intValue]];
         card.size = [NSNumber numberWithInt:[[simgleCard valueForKey:@"hierarchy"] intValue]];
+        
+        //getUrl
+        card.food_hierachy_img_url = [simgleCard valueForKey:@"food_hierarchy_image_url"];
         card.size_image_url = [simgleCard valueForKey:@"size_image_url"];
         card.backgroundGraphicUrl = [simgleCard valueForKey:@"background_image_url"];
-//        card.food_hierachy_img_url = [simgleCard valueForKey:@"graphic"];
-//        card.foodHieraachyImg = [simgleCard valueForKey:@"graphic"];
-//        card.sizeGraphicImg =[simgleCard valueForKey:@"graphic"];
-//        card.backgroundGraphicImg =[BBCard getNSDataFormatImgWithUrl:[simgleCard valueForKey:@"graphic"]];
+        
+        //getImg
+        card.foodHieraachyImg = [Card getNSDataFormatImgWithUrl:card.food_hierachy_img_url];
+        card.sizeGraphicImg = [Card getNSDataFormatImgWithUrl:card.size_image_url];
+        card.backgroundGraphicImg =[Card getNSDataFormatImgWithUrl:card.backgroundGraphicUrl];
+
         card.cardId =cardImg.cardId;
         
         //connecting together
