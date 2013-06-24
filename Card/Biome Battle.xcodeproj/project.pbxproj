@@ -18,8 +18,7 @@
 		EDF2748C1774C29A00AA3AC1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF2748B1774C29A00AA3AC1 /* Default@2x.png */; };
 		EDF2748E1774C29A00AA3AC1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDF2748D1774C29A00AA3AC1 /* Default-568h@2x.png */; };
 		EDF274911774C29A00AA3AC1 /* Biome_Battle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDF2748F1774C29A00AA3AC1 /* Biome_Battle.xcdatamodeld */; };
-		EDF274991774C32500AA3AC1 /* BBJsonConnecttion.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF274981774C32500AA3AC1 /* BBJsonConnecttion.m */; };
-		EDF2749C1774CAC800AA3AC1 /* BBCard.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF2749B1774CAC800AA3AC1 /* BBCard.m */; };
+		EDF274991774C32500AA3AC1 /* BBJsonConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF274981774C32500AA3AC1 /* BBJsonConnection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,10 +37,8 @@
 		EDF2748B1774C29A00AA3AC1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EDF2748D1774C29A00AA3AC1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EDF274901774C29A00AA3AC1 /* Biome_Battle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Biome_Battle.xcdatamodel; sourceTree = "<group>"; };
-		EDF274971774C32500AA3AC1 /* BBJsonConnecttion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBJsonConnecttion.h; sourceTree = "<group>"; };
-		EDF274981774C32500AA3AC1 /* BBJsonConnecttion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBJsonConnecttion.m; sourceTree = "<group>"; };
-		EDF2749A1774CAC800AA3AC1 /* BBCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBCard.h; sourceTree = "<group>"; };
-		EDF2749B1774CAC800AA3AC1 /* BBCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBCard.m; sourceTree = "<group>"; };
+		EDF274971774C32500AA3AC1 /* BBJsonConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBJsonConnection.h; sourceTree = "<group>"; };
+		EDF274981774C32500AA3AC1 /* BBJsonConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBJsonConnection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +105,8 @@
 				EDF274891774C29A00AA3AC1 /* Default.png */,
 				EDF2748B1774C29A00AA3AC1 /* Default@2x.png */,
 				EDF2748D1774C29A00AA3AC1 /* Default-568h@2x.png */,
-				EDF274971774C32500AA3AC1 /* BBJsonConnecttion.h */,
-				EDF2749A1774CAC800AA3AC1 /* BBCard.h */,
-				EDF2749B1774CAC800AA3AC1 /* BBCard.m */,
-				EDF274981774C32500AA3AC1 /* BBJsonConnecttion.m */,
+				EDF274971774C32500AA3AC1 /* BBJsonConnection.h */,
+				EDF274981774C32500AA3AC1 /* BBJsonConnection.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -185,8 +180,7 @@
 				EDF274841774C29900AA3AC1 /* main.m in Sources */,
 				EDF274881774C29900AA3AC1 /* BBAppDelegate.m in Sources */,
 				EDF274911774C29A00AA3AC1 /* Biome_Battle.xcdatamodeld in Sources */,
-				EDF274991774C32500AA3AC1 /* BBJsonConnecttion.m in Sources */,
-				EDF2749C1774CAC800AA3AC1 /* BBCard.m in Sources */,
+				EDF274991774C32500AA3AC1 /* BBJsonConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +295,7 @@
 				EDF274961774C29A00AA3AC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

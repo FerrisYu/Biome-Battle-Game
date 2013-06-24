@@ -1,10 +1,17 @@
-//
-//  BBAppDelegate.h
-//  Biome Battle
-//
-//  Created by Hai fu Yu on 13-6-21.
-//  Copyright (c) 2013年 Hai fu Yu. All rights reserved.
-//
+/*
+ BBAppDelegate.h
+ GROUP 13 Biome Battle team
+ 
+ Revision History
+ 1.0 Creatation
+ 1.1 Add create function
+ 
+ Discovered Bugs
+
+ 
+ */
+
+
 
 #import <UIKit/UIKit.h>
 
