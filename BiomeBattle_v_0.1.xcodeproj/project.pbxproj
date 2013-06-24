@@ -51,7 +51,6 @@
 		0DC74E7A1774E95A0004E224 /* 6217183371_e05d52da40_o.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DC74E771774E95A0004E224 /* 6217183371_e05d52da40_o.jpg */; };
 		0DC74E7B1774E95A0004E224 /* bg-F3F3D0-forest-grasslands-urban-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DC74E781774E95A0004E224 /* bg-F3F3D0-forest-grasslands-urban-1.png */; };
 		0DC74E7C1774E95A0004E224 /* Tmode_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DC74E791774E95A0004E224 /* Tmode_icon.jpg */; };
-		713E8A0E1776D4730096DF58 /* BBCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 713E8A0D1776D4720096DF58 /* BBCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,8 +127,6 @@
 		0DC74E771774E95A0004E224 /* 6217183371_e05d52da40_o.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6217183371_e05d52da40_o.jpg; sourceTree = "<group>"; };
 		0DC74E781774E95A0004E224 /* bg-F3F3D0-forest-grasslands-urban-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-F3F3D0-forest-grasslands-urban-1.png"; sourceTree = "<group>"; };
 		0DC74E791774E95A0004E224 /* Tmode_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Tmode_icon.jpg; sourceTree = "<group>"; };
-		713E8A0C1776D4720096DF58 /* BBCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BBCard.h; path = Card/BBCard.h; sourceTree = "<group>"; };
-		713E8A0D1776D4720096DF58 /* BBCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BBCard.m; path = Card/BBCard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,8 +211,6 @@
 		0D0D57F81776572E00C2F64A /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				713E8A0C1776D4720096DF58 /* BBCard.h */,
-				713E8A0D1776D4720096DF58 /* BBCard.m */,
 				0D0D57FD1776573A00C2F64A /* BBDBManager.h */,
 				0D0D57FE1776573A00C2F64A /* BBDBManager.m */,
 				0D0D57FF1776573A00C2F64A /* BBJsonConnection.h */,
@@ -450,7 +445,6 @@
 				0D0D584317766AB900C2F64A /* RequestDelegate.m in Sources */,
 				0D0D584417766AB900C2F64A /* Response.m in Sources */,
 				0D0D584517766AB900C2F64A /* ResponseHandler.m in Sources */,
-				713E8A0E1776D4730096DF58 /* BBCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
