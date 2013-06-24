@@ -1,14 +1,16 @@
 //
 //  main.m
-//  Biome Battle
+//  BiomeBattle_v_0.1
 //
-//  Created by Hai fu Yu on 13-6-21.
-//  Copyright (c) 2013年 Hai fu Yu. All rights reserved.
+//  Created by Rui Zheng on 6/20/13.
+//  Copyright (c) 2013 Rui Zheng. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-#import "BBAppDelegate.h"
+#import "BBAppDelegate.h"		
+#import "DBManager.h"
+
 
 int main(int argc, char *argv[])
 {
